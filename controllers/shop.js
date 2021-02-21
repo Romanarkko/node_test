@@ -77,9 +77,12 @@ exports.postCart = (req, res, next) => {
 
 exports.postCartDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId;
-  req.user.deleteItemFromCart(prodId).then((result) => {
-    res.redirect('/cart');
-  });
+  req.user
+    .deleteItemFromCart(prodId)
+    .then((result) => {
+      res.redirect('/cart');
+    })
+    .catch((err) => console.log(err));
 };
 
 exports.postOrder = (req, res, next) => {
@@ -94,7 +97,7 @@ exports.postOrder = (req, res, next) => {
 
 exports.getOrders = (req, res, next) => {
   req.user
-    .getOrders({ include: ['products'] })
+    .getOrders()
     .then((orders) => {
       res.render('shop/orders', {
         path: '/orders',
