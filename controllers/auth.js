@@ -40,7 +40,7 @@ exports.postLogin = (req, res, next) => {
         })
         .catch((err) => {
           console.log(err);
-          res.redirect('/login');
+          res.redirect('login');
         });
       req.session.isLoggedIn = true;
       req.session.user = user;
@@ -64,7 +64,6 @@ exports.postSignup = (req, res, next) => {
       return bcrypt.hash(password, 12).then((hashPassword) => {
         const user = new User({
           email,
-          name: email,
           password: hashPassword,
           cart: { items: [] },
         });
