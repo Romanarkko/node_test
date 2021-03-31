@@ -11,7 +11,12 @@ const flash = require('connect-flash');
 const errorController = require('./controllers/error');
 const User = require('./models/user');
 
+<<<<<<< HEAD
 const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.qq3kd.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}?retryWrites=true&w=majority`;
+=======
+const MONGODB_URI =
+  'mongodb+srv://romanarkko:dkP8SEXbMKlWXl2C@cluster0.qq3kd.mongodb.net/shop?retryWrites=true&w=majority';
+>>>>>>> 1167ba8342b854f7e112be1f0eff9322a2765621
 
 const app = express();
 const store = new MongoDBStore({
